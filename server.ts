@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import { userRouter } from './routes/user';
 
 dotenv.config();
 
@@ -11,6 +12,8 @@ app.use('/test', (req, res) => {
   console.log(req.body);
   res.send('Hello');
 });
+
+app.use('/user', userRouter);
 
 const port = process.env.PORT || 3000;
 
